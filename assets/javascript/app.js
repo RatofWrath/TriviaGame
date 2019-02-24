@@ -44,19 +44,39 @@ var questions = [
 
 function startGame(){
     for(i = 0; i < questions.length; i++){
-        quizContent += questions[i].question + "<br>"
-        + questions[i].choices[0] + "<br>"
-        + questions[i].choices[1] + "<br>"
-        + questions[i].choices[2] + "<br>"
-        + questions[i].choices[3] + "<br>" + "<br>";
+        generateQuestion(i);
     }
     document.getElementById("quizContent").innerHTML = quizContent;
 }
 
-function checkAnswers(){
+function generateQuestion(i){
+    quizContent += questions[i].question + "<br>"
+    + "<input type='radio' name='attempt' value='A'>" +  "  " + questions[i].choices[0] + "<br>"
+    + "<input type='radio' name='attempt' value='B'>" +  "  " + questions[i].choices[1] + "<br>"
+    + "<input type='radio' name='attempt' value='C'>" +  "  " + questions[i].choices[2] + "<br>"
+    + "<input type='radio' name='attempt' value='D'>" +  "  " + questions[i].choices[3] + "<br>" + "<br>";
+    return quizContent;
+}
 
+function checkAnswers(){
+    for(i = 0; i < questions.length; i++){
+        var radioValue = $("input[name='attempt']:checked").val();
+        if(radioValue){
+            if(radioValue === questions[i].correctAnswer){
+                correctAnswers++;
+                unansweredQuestions--;
+            }
+
+            else{
+                incorrectAnswers++;
+                unansweredQuestions--;
+            }
+        }
+    }
 }
 
 function displayResults(){
-
+    document.getElementById("quizContent").innerHTML = "Correct answers: " + correctAnswers +"<br>"
+    + "Incorrect answers: " + incorrectAnswers + "<br>"
+    + "Unanswered questions" + unansweredQuestions;
 }
