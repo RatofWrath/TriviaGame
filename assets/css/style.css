@@ -22,15 +22,24 @@ h2{
 }
 
 #quizContent{
-
+    font-weight: bold;
+    line-height: 21px;
+    padding: 3px;
 }
 
-#start{
+#timer{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+#submit{
     background-color: green;
     color: white;
     padding: 3px;
     border: 2px solid black;
     margin-bottom: 10px;
-    margin-left: 150px;
+    margin-left: 170px;
 }
 </style>
