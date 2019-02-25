@@ -3,6 +3,7 @@ var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unansweredQuestions = 6;
 var quizContent = "";
+var attemptArray = ["attempt1", "attempt2", "attempt3", "attempt4", "attempt5", "attempt6"];
 var questions = [
 
    {
@@ -51,10 +52,10 @@ function startGame(){
 
 function generateQuestion(i){
     quizContent += questions[i].question + "<br>"
-    + "<input type='radio' name='attempt' value='A'>" +  "  " + questions[i].choices[0] + "<br>"
-    + "<input type='radio' name='attempt' value='B'>" +  "  " + questions[i].choices[1] + "<br>"
-    + "<input type='radio' name='attempt' value='C'>" +  "  " + questions[i].choices[2] + "<br>"
-    + "<input type='radio' name='attempt' value='D'>" +  "  " + questions[i].choices[3] + "<br>" + "<br>";
+    + "<input type='radio' name=" + attemptArray[i] + " value='A'>" +  "  " + questions[i].choices[0] + "<br>"
+    + "<input type='radio' name=" + attemptArray[i] + " value='B'>"+  "  " + questions[i].choices[1] + "<br>"
+    + "<input type='radio' name=" + attemptArray[i] + " value='C'>" +  "  " + questions[i].choices[2] + "<br>"
+    + "<input type='radio' name=" + attemptArray[i] + " value='D'>"+  "  " + questions[i].choices[3] + "<br>" + "<br>";
     return quizContent;
 }
 
