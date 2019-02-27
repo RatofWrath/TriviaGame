@@ -2,6 +2,7 @@ var secondsLeft = 90;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unansweredQuestions = 6;
+var timeInterval;
 var quizContent = "";
 var attemptArray = ["attempt1", "attempt2", "attempt3", "attempt4", "attempt5", "attempt6"];
 var questions = [
@@ -49,6 +50,7 @@ function startGame(){
     }
     quizContent += "<button id = 'submit' type = 'button' onclick='displayResults()'> Submit your answers </button>";
     document.getElementById("quizContent").innerHTML = quizContent;
+    timeInterval = setInterval(reduceByOne, 1000);
 }
 
 function generateQuestion(i){
@@ -58,6 +60,14 @@ function generateQuestion(i){
     + "<input type='radio' name=" + attemptArray[i] + " value='C'>" +  "  " + questions[i].choices[2] + "<br>"
     + "<input type='radio' name=" + attemptArray[i] + " value='D'>"+  "  " + questions[i].choices[3] + "<br>" + "<br>";
     return quizContent;
+}
+
+function reduceByOne(){
+    secondsLeft--;
+    document.getElementById('timer').innerHTML = secondsLeft + " seconds left"
+    if(secondsLeft === 0){
+        displayResults();
+    }
 }
 
 function checkAnswers(){
@@ -93,4 +103,5 @@ function displayResults(){
     document.getElementById("quizContent").innerHTML = "Correct answers: " + correctAnswers +"<br>"
     + "Incorrect answers: " + incorrectAnswers + "<br>"
     + "Unanswered questions: " + unansweredQuestions;
+    clearInterval(timeInterval);
 }
