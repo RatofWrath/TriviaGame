@@ -6,4 +6,4 @@ In this game the user has ninety seconds to answer six questions related to foot
 ### Technologies used
 For this project I used HTML, CSS and Javascript.
 
-Link: https://ratofwrath.github.io/TriviaGame/
+Link: https://Tyler-Mullen.github.io/TriviaGame/
